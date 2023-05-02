@@ -9,6 +9,13 @@ export class VoucherController {
   async getEmailVouchers(@Param('email') email: string) {
     return this.voucherService.getEmailVouchers(email);
   }
+  @Get(':email/:voucherCode')
+  async validateVouchers(@Param() params) {
+    return this.voucherService.validateVouchers(
+      params.email,
+      params.voucherCode,
+    );
+  }
   @Post()
   async createNewVoucher(
     @Body()

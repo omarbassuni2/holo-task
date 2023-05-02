@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { VoucherModule } from './vouchers/voucher.module';
 import { UserModule } from './user/user.module';
-// TO-DO: ADD ENV VARIABLES
 @Module({
   imports: [
     MongooseModule.forRoot(

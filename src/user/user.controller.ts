@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserInterface } from './user.model';
-// TO-DO: edit responses
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}

@@ -19,7 +19,7 @@ export class UserService {
 
   async getAllUsers() {
     try {
-      return this.voucherModel.find();
+      return this.voucherModel.find({});
     } catch (error) {}
   }
 }
