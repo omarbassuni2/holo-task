@@ -1,7 +1,15 @@
 import * as mongoose from 'mongoose';
+import * as validator from 'validator';
 
 export const VoucherSchema = new mongoose.Schema({
-  assignedCustomer: { type: String, required: true },
+  assignedCustomerEmail: {
+    type: String,
+    required: true,
+    validate: [
+      validator.isEmail,
+      'Email is not valid. Make sure you submitted a valid Email',
+    ],
+  },
   assignedSpecialOffer: { type: String, required: true },
   expirationDate: { type: Date, required: true },
   isUsed: { type: Boolean, default: false },

@@ -12,12 +12,12 @@ export class VoucherService {
 
   async createVoucher(voucherDetails: VoucherInterface) {
     //TO-DO: ADD A CHECK IF THE EMAIL/SPECIAL EXISTS IN DB
-    const newVoucher = new this.voucherModel({
-      assignedCustomer: voucherDetails.email,
-      assignedSpecialOffer: voucherDetails.specialOffer,
-      expirationDate: voucherDetails.expirationDate,
-    });
     try {
+      const newVoucher = new this.voucherModel({
+        assignedCustomerEmail: voucherDetails.email,
+        assignedSpecialOffer: voucherDetails.specialOffer,
+        expirationDate: voucherDetails.expirationDate,
+      });
       const result = await newVoucher.save();
       return result.id as string;
     } catch (error) {
@@ -27,7 +27,7 @@ export class VoucherService {
 
   async getEmailVouchers(email: string) {
     try {
-      return this.voucherModel.find({ assignedCustomer: email });
+      return this.voucherModel.find({ assignedCustomerEmail: email });
     } catch (error) {
       throw new Error("Couldn't get vouchers for this email\n" + error);
     }
