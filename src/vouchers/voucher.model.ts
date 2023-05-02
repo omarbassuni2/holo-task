@@ -18,6 +18,6 @@ export const VoucherSchema = new mongoose.Schema({
 
 export interface VoucherInterface {
   email: string;
-  specialOffer: string;
+  assignedSpecialOffer: string;
   expirationDate: Date;
 }

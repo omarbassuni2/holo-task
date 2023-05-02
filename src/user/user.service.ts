@@ -7,11 +7,11 @@ import { Model } from 'mongoose';
 export class UserService {
   constructor(
     @InjectModel('User')
-    private readonly voucherModel: Model<UserInterface>,
+    private readonly userModel: Model<UserInterface>,
   ) {}
   async createUser(user: UserInterface) {
     try {
-      return this.voucherModel.create(user);
+      return this.userModel.create(user);
     } catch (error) {
       throw new Error("Couldn't create user\n" + error);
     }
@@ -19,7 +19,7 @@ export class UserService {
 
   async getAllUsers() {
     try {
-      return this.voucherModel.find({});
+      return this.userModel.find({});
     } catch (error) {}
   }
 }

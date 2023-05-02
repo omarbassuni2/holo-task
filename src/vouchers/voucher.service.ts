@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { VoucherInterface } from './voucher.model';
 import { UserInterface } from '../user/user.model';
+import { OfferInterface } from '../offer/offer.model';
 @Injectable()
 export class VoucherService {
   constructor(
@@ -10,16 +11,25 @@ export class VoucherService {
     private readonly voucherModel: Model<VoucherInterface>,
     @InjectModel('User')
     private readonly userModel: Model<UserInterface>,
+    @InjectModel('Offer')
+    private readonly offerModel: Model<OfferInterface>,
   ) {}
 
   async createVoucher(voucherDetails: VoucherInterface) {
-    //TO-DO: ADD A CHECK IF THE SPECIAL EXISTS IN DB
     try {
+      const offer = await this.offerModel.find({
+        name: voucherDetails.assignedSpecialOffer,
+      });
+      if (offer.length === 0)
+        return {
+          status: 'success',
+          message: 'No offer with this name was found!',
+        };
       const users = await this.userModel.find({}, { email: 1 });
       const newVouchers = users.map((u) => {
         return {
           assignedCustomerEmail: u.email,
-          assignedSpecialOffer: voucherDetails.specialOffer,
+          assignedSpecialOffer: voucherDetails.assignedSpecialOffer,
           expirationDate: voucherDetails.expirationDate,
         };
       });
@@ -36,16 +46,30 @@ export class VoucherService {
       throw new Error("Couldn't get vouchers for this email\n" + error);
     }
   }
-  // TO-DO: add use voucher
   async validateVouchers(email: string, voucherCode: string) {
     try {
       const voucher = await this.voucherModel.find({
         assignedCustomerEmail: email,
-        assignedSpecialOffer: voucherCode,
+        _id: voucherCode,
         isUsed: false,
       });
-      // TO-DO: ADD SPECIAL OFFER
-      return 'SPECIAL OFFER DISCOUNT';
+      if (voucher.length === 0)
+        return {
+          message:
+            'No valid/unused vouchers with this email and code was found',
+        };
+      const offer = await this.offerModel.findOne({
+        name: voucher[0].assignedSpecialOffer,
+      });
+      const updateRes = await this.voucherModel.updateOne(
+        {
+          assignedCustomerEmail: email,
+          _id: voucherCode,
+          isUsed: false,
+        },
+        { isUsed: true, usedAt: new Date() },
+      );
+      return { status: 'success', discount: offer.discount };
     } catch (error) {
       throw new Error(
         "Couldn't validate voucher for this email and code\n" + error,

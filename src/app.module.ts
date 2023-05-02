@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { VoucherModule } from './vouchers/voucher.module';
 import { UserModule } from './user/user.module';
+import { OfferModule } from './offer/offer.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
@@ -11,6 +12,7 @@ import { UserModule } from './user/user.module';
     ),
     VoucherModule,
     UserModule,
+    OfferModule,
   ],
   controllers: [AppController],
   providers: [AppService],
