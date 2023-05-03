@@ -1,18 +1,20 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
 import { VoucherModule } from './vouchers/voucher.module';
 import { UserModule } from './user/user.module';
 import { OfferModule } from './offer/offer.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { DatabaseModule } from './database/database.module';
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://holo:holo123@cluster0.antftjc.mongodb.net/holo-task?retryWrites=true&w=majority',
-    ),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     VoucherModule,
     UserModule,
     OfferModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
