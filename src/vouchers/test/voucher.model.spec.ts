@@ -8,9 +8,6 @@ import { AppModule } from '../../app.module';
 import { VoucherInterface } from '../voucher.model';
 import { secondOfferStub } from '../../offer/test/stubs/offer.stub';
 import { secondUserStub } from '../../user/test/stubs/user.stub';
-import { before } from 'node:test';
-import { async } from 'rxjs';
-import { rejects } from 'node:assert';
 
 describe('VoucherModel', () => {
   let dbConnection: Connection;
