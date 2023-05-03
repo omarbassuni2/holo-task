@@ -34,7 +34,7 @@ $ npm install
 ## Running the app
 
 ```bash
-Run an mongodb server before starting the app
+Run a mongodb server before starting the app
 
 # development
 $ npm run start
