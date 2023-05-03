@@ -6,3 +6,10 @@ export const offerStub = (): OfferInterface => {
     discount: 23,
   };
 };
+
+export const secondOfferStub = (): OfferInterface => {
+  return {
+    name: 'offer44',
+    discount: 44,
+  };
+};

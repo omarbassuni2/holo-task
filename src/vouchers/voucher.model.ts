@@ -11,13 +11,21 @@ export const VoucherSchema = new mongoose.Schema({
     ],
   },
   assignedSpecialOffer: { type: String, required: true },
-  expirationDate: { type: Date, required: true },
+  expirationDate: {
+    type: Date,
+    required: true,
+    validate: {
+      validator: function (date) {
+        return date > new Date();
+      },
+      message: 'Expiration date must be in the future',
+    },
+  },
   isUsed: { type: Boolean, default: false },
   usedAt: { type: Date, default: null },
 });
 
 export interface VoucherInterface {
-  email: string;
   assignedSpecialOffer: string;
   expirationDate: Date;
 }

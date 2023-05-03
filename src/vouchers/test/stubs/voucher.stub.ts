@@ -2,8 +2,7 @@ import { VoucherInterface } from 'src/vouchers/voucher.model';
 
 export const voucherStub = (): VoucherInterface => {
   return {
-    email: 'omar1@gmail.com',
-    assignedSpecialOffer: 'offer23',
+    assignedSpecialOffer: 'offer44',
     expirationDate: new Date('2023-12-01'),
   };
 };

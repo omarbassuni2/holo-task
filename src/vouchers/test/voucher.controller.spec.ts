@@ -3,6 +3,7 @@ import { VoucherController } from '../voucher.controller';
 import { VoucherService } from '../voucher.service';
 import { VoucherInterface } from '../voucher.model';
 import { voucherStub } from './stubs/voucher.stub';
+import { userStub } from '../../user/test/stubs/user.stub';
 
 jest.mock('../voucher.service');
 describe('VoucherController', () => {
@@ -24,12 +25,12 @@ describe('VoucherController', () => {
       let voucher: VoucherInterface[];
 
       beforeEach(async () => {
-        voucher = await voucherController.getEmailVouchers(voucherStub().email);
+        voucher = await voucherController.getEmailVouchers(userStub().email);
       });
 
       test('then it should be called with', () => {
         expect(voucherService.getEmailVouchers).toBeCalledWith(
-          voucherStub().email,
+          userStub().email,
         );
       });
 
@@ -44,7 +45,6 @@ describe('VoucherController', () => {
       let voucher: VoucherInterface;
       beforeEach(async () => {
         voucher = {
-          email: voucherStub().email,
           assignedSpecialOffer: voucherStub().assignedSpecialOffer,
           expirationDate: voucherStub().expirationDate,
         };
@@ -62,14 +62,14 @@ describe('VoucherController', () => {
   describe('when validateVouchers is called', () => {
     beforeEach(async () => {
       await voucherController.validateVouchers({
-        email: voucherStub().email,
+        email: userStub().email,
         voucherCode: 'voucherCode',
       });
     });
 
     test('then it should be called with', () => {
       expect(voucherService.validateVouchers).toBeCalledWith(
-        voucherStub().email,
+        userStub().email,
         'voucherCode',
       );
     });

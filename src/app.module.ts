@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { VoucherModule } from './vouchers/voucher.module';
 import { UserModule } from './user/user.module';
 import { OfferModule } from './offer/offer.module';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 @Module({
   imports: [

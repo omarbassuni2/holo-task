@@ -58,7 +58,7 @@ export class VoucherService {
           message:
             'No valid/unused vouchers with this email and code was found',
         };
-      if (voucher[0].expirationDate > new Date())
+      if (voucher[0].expirationDate < new Date())
         return { status: 'success', message: 'Voucher expired!' };
       const offer = await this.offerModel.findOne({
         name: voucher[0].assignedSpecialOffer,
