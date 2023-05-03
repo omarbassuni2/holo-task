@@ -31,9 +31,9 @@
 ```bash
 $ npm install
 ```
-
 ## Running the app
 
+# Run an mongodb server before starting the app
 ```bash
 # development
 $ npm run start
