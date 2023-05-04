@@ -25,6 +25,15 @@ services:
     networks:
       - nestjs_network
 
+  # test:
+  #   build:
+  #     context: .
+  #     target: test
+  #   depends_on:
+  #     - database
+  #   networks:
+  #     - nestjs_network
+
 networks:
   nestjs_network:
     driver: bridge
