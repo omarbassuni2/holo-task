@@ -11,6 +11,12 @@ COPY . .
 
 RUN npm run build
 
+# Test stage
+# FROM build AS test
+# WORKDIR /usr/src/app
+# COPY --from=build /usr/src/app .
+# RUN npm run test
+
 # Production stage
 FROM node:18-alpine
 

@@ -1,0 +1,144 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "holo",
+    "dateExported": "2023-05-04T04:04:53.953Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "9213bed9-b2c6-4b4d-bb1a-87ca348f4d7a",
+            "name": "vouchers",
+            "containerId": "",
+            "created": "2023-05-04T03:34:21.589Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "ef55a0db-3758-425b-a4d7-f662fd37b081",
+            "name": "users",
+            "containerId": "",
+            "created": "2023-05-04T03:34:28.342Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "0c81740e-038b-4263-936a-bfc1ae7b1962",
+            "name": "offers",
+            "containerId": "",
+            "created": "2023-05-04T03:34:35.856Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1ed3ede7-6c45-4cbd-a732-966057899bf7",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "9213bed9-b2c6-4b4d-bb1a-87ca348f4d7a",
+            "name": "Generate a voucher",
+            "url": "localhost:3000/vouchers",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-04T03:54:05.018Z",
+            "modified": "2023-05-04T03:59:22.694Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"assignedSpecialOffer\": \"sad\",\n  \"expirationDate\": \"2023-12-12\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a1b33b10-9c9a-4ebe-9bc0-8a528de058fa",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "9213bed9-b2c6-4b4d-bb1a-87ca348f4d7a",
+            "name": "Get Email Vouchers",
+            "url": "localhost:3000/vouchers/omar1@gmail.com/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-05-04T03:55:37.318Z",
+            "modified": "2023-05-04T04:00:34.960Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f5db9bf4-937b-4da3-bbbd-15dcfae3983d",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "9213bed9-b2c6-4b4d-bb1a-87ca348f4d7a",
+            "name": "Validate Voucher",
+            "url": "localhost:3000/vouchers/enterValidEmailFromDB@gmail.com/voucherObjectIdFromDB",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-04T03:56:14.870Z",
+            "modified": "2023-05-04T03:59:03.860Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f6dbf20b-2f41-4c5b-9892-83b355912399",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "ef55a0db-3758-425b-a4d7-f662fd37b081",
+            "name": "create user",
+            "url": "localhost:3000/users",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-05-04T03:57:10.088Z",
+            "modified": "2023-05-04T03:57:10.088Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"omar1\",\n  \"email\": \"omar1@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "834d238e-868a-4e66-bcc5-e2ac060397ad",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "ef55a0db-3758-425b-a4d7-f662fd37b081",
+            "name": "get all users from db",
+            "url": "localhost:3000/users",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-05-04T03:57:31.988Z",
+            "modified": "2023-05-04T03:57:31.988Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "477098c9-af20-461c-86cb-f6dd8fc91ecf",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "0c81740e-038b-4263-936a-bfc1ae7b1962",
+            "name": "create offer",
+            "url": "localhost:3000/offers",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-05-04T03:58:24.006Z",
+            "modified": "2023-05-04T03:58:24.006Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"offer10\",\n  \"discount\": 10\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c3410823-fb58-4ca4-b530-a17601052331",
+            "colId": "3ed0c5d8-61e0-47b1-939c-235d109381e9",
+            "containerId": "0c81740e-038b-4263-936a-bfc1ae7b1962",
+            "name": "get all offers",
+            "url": "localhost:3000/offers",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-05-04T03:58:40.539Z",
+            "modified": "2023-05-04T03:58:40.540Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
