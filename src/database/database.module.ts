@@ -12,6 +12,8 @@ import { DatabaseService } from './database.service';
           configService.get<string>('NODE_ENV') === 'test'
             ? configService.get<string>('MONGO_TEST_CONNECTION_URI')
             : configService.get<string>('MONGO_PROD_CONNECTION_URI'),
+        connectTimeoutMS: 10000,
+        socketTimeoutMS: 10000,
       }),
       inject: [ConfigService],
     }),
