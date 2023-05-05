@@ -1,7 +1,7 @@
 
 ## Use The Hosted Web App 
 - Import ec2-postman-collection.json into your postman/thunder extension in vscode
-- In your Imported collection you will find three folder: Offers, Users, Vouchers
+- In your Imported collection you will find three folders: Offers, Users, Vouchers
 - Open Offers: Create an offer | or get offers I already created
 - Open Users: Create user/many users | or get users I already created
 - Open Vouchers: Start generating your vouchers | or check/validate the vouchers I created :)
