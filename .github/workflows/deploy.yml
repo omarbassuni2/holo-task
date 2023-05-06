@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: deploy
-        uses: omarbassuni2/holo-task
+        uses: omarbassuni2/holo-task@main
         with:
           aws_access_key_id: ${{ secrets.AWS_HOLO_ACCESS_KEY }}
           aws_secret_access_key: ${{ secrets.AWS_HOLO_SECRET_KEY }}
