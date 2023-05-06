@@ -6,6 +6,9 @@ on:
 jobs:
   EC2-Deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name }}
+      url: ${{ steps.deploy.outputs.vm_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
