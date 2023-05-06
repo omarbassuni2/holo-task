@@ -32,3 +32,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_HOLO_SECRET_KEY }}
           aws_default_region: us-east-1
           dot_env: ${{ secrets.DOT_ENV }}
+          image: ${{ steps.set_tag.outputs.TAG_NAME }}
