@@ -1,0 +1,16 @@
+name: Basic deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  EC2-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - id: deploy
+        uses: omarbassuni2/holo-task
+        with:
+          aws_access_key_id: ${{ secrets.AWS_HOLO_ACCESS_KEY }}
+          aws_secret_access_key: ${{ secrets.AWS_HOLO_SECRET_KEY }}
+          aws_default_region: us-east-1
+          dot_env: ${{ secrets.DOT_ENV }}
